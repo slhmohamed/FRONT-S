@@ -1,0 +1,43 @@
+
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="form">
+      <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text"> Contact us with the following details. and fillup the form with the details. </p>
+          <div class="info">
+              <div class="social-information"> <i class="fa fa-map-marker"></i>
+                  <p>NPM,NY,USA</p>
+              </div>
+              <div class="social-information"> <i class="fa fa-envelope-o"></i>
+                  <p>contact@bbbootstrap.com</p>
+              </div>
+              <div class="social-information"> <i class="fa fa-mobile-phone"></i>
+                  <p>+1 989 989 9898 </p>
+              </div>
+          </div>
+          <div class="social-media">
+              <p>Connect with us :</p>
+              <div class="social-icons"> <a href="#"> <i class="fa fa-facebook-f"></i> </a> <a href="#"> <i class="fa fa-twitter"></i> </a> <a href="#"> <i class="fa fa-instagram"></i> </a> <a href="#"> <i class="fa fa-linkedin"></i> </a> </div>
+          </div>
+      </div>
+      <div class="contact-info-form"> <span class="circle one"></span> <span class="circle two"></span>
+        <form [formGroup]="ContactForm" (ngSubmit)="onSubmit()" name="contact">
+              <h3 class="title">Contact us</h3>
+              <div class="social-input-containers"> <input type="text" name="name" id="name" class="input" placeholder="Name" /> </div>
+              <div class="social-input-containers"> <input type="email" name="email" id="email" class="input" placeholder="Email" />  </div>
+              <div class="social-input-containers textarea"> <textarea name="message" id="message" class="input" placeholder="Message"></textarea> </div> <input type="submit" value="Send" class="btn" />
+          </form>
+      </div>
+  </div>
+</div>
+

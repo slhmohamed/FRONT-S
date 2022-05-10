@@ -1,0 +1,256 @@
+body{
+    background-color:blue;
+    background-image: url('https://itsocial.fr/wp-content/uploads/2021/12/Freelance-Job-Categories.png');
+    }
+    
+    .card{
+      
+      border: none;
+      background: #eee;
+    
+    }
+    .search {
+      width: 100%;
+          margin-bottom: auto;
+        margin-top: 20px;
+        height: 50px;
+            background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .search-input {
+        color: white;
+        border: 0;
+        outline: 0;
+        background: none;
+        width: 0;
+        margin-top: 5px;
+        caret-color: transparent;
+        line-height: 20px;
+        transition: width 0.4s linear
+    }
+    
+    .search .search-input {
+        padding: 0 10px;
+        width: 100%;
+        caret-color: #536bf6;
+        font-size: 19px;
+        font-weight: 300;
+        color: black;
+        transition: width 0.4s linear;
+    }
+    
+    
+    .search-icon {
+            height: 34px;
+        width: 34px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: #536bf6;
+        font-size: 10px;
+            bottom: 30px;
+            position: relative;
+            border-radius: 5px;
+    }
+    
+    .search-icon:hover{
+    
+      color: #fff !important;
+    }
+    
+    a:link {
+        text-decoration: none
+    }
+    
+    
+    
+    .card-inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        border:none;
+        cursor: pointer;
+        transition: all 2s;
+    }
+    
+    
+    .card-inner:hover{
+    
+       transform: scale(1.1);
+    
+    }
+    
+    .mg-text span{
+    
+      font-size: 12px;
+    
+    }
+    
+    .mg-text{
+    
+      line-height: 14px;
+    }
+    .container{
+        margin-top:100px;
+    }
+    
+    .section-title {
+        margin-bottom: 38px;
+    }
+    
+    .shadow, .subscription-wrapper {
+        box-shadow: 0px 15px 39px 0px rgba(8, 18, 109, 0.1) !important;
+    }
+    
+    .icon-primary {
+        color: #062caf;
+    }
+    
+    .icon-bg-circle {
+        position: relative;
+    }
+    
+    .icon-lg {
+        font-size: 50px;
+    } 
+    
+    .icon-bg-circle::before {
+        z-index: 1;
+        position: relative;
+    }
+    
+    .icon-bg-primary::after {
+        background: #062caf !important;
+    }
+    
+    .icon-bg-circle::after {
+        content: '';
+        position: absolute;
+        width: 68px;
+        height: 68px;
+        top: -35px;
+        left: 15px;
+        border-radius: 50%;
+        background: inherit;
+        opacity: .1;
+    } 
+    
+    p, .paragraph {
+        font-weight: 400;
+        color: #8b8e93;
+        font-size: 15px;
+        line-height: 1.6;
+        font-family: "Open Sans", sans-serif;
+    }
+    
+    .icon-bg-yellow::after {
+        background: #f6a622 !important; 
+    }
+    .icon-bg-purple::after {
+        background: #7952f5;
+    }
+    
+    .icon-yellow {
+        color: #f6a622;
+    }
+    
+    
+    
+    .icon-purple {
+        color: #7952f5;
+    }
+    
+    
+    .icon-cyan {
+        color: #02d0a1;
+    }
+    
+    .icon-bg-cyan::after {
+        background: #02d0a1;
+    }
+    
+    .icon-bg-red::after {
+        background: #ff4949;
+    }
+    
+    .icon-red {
+        color: #ff4949;
+    }
+    
+    .icon-bg-green::after {
+        background: #66cc33;
+    }
+    
+    .icon-green {
+        color: #66cc33;
+    }
+    
+    .icon-bg-orange::after {
+        background: #ff7c17;
+    }
+    
+    .icon-orange {
+        color: #ff7c17;
+    }
+    
+    .icon-bg-blue::after {
+        background: #3682ff;
+    }
+    
+    .icon-blue {
+        color: #3682ff;
+    }
+    
+    
+    .container{
+        margin-top:100px;
+    }
+    
+    .counter-box {
+        display: block;
+        background: #f6f6f6;
+        padding: 40px 20px 37px;
+        text-align: center
+    }
+    
+    .counter-box p {
+        margin: 5px 0 0;
+        padding: 0;
+        color: #909090;
+        font-size: 18px;
+        font-weight: 500
+    }
+    
+    .counter-box i {
+        font-size: 60px;
+        margin: 0 0 15px;
+        color: #d2d2d2
+    }
+    
+    .counter { 
+        display: block;
+        font-size: 32px;
+        font-weight: 700;
+        color: #666;
+        line-height: 28px
+    }
+    
+    .counter-box.colored {
+          background: #eb886c;
+    }
+    
+    .counter-box.colored p,
+    .counter-box.colored i,
+    .counter-box.colored .counter {
+        color: #fff
+    }    
