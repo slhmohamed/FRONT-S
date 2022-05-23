@@ -33,12 +33,13 @@ export class ContactComponent implements OnInit {
         if (this.ContactForm.invalid) {
             return;
         }
+      console.log(this.ContactForm.value);
       
         this.userServ.addContact(this.ContactForm.value)        
         .subscribe(
           res => {  
                    
-            this.router.navigate(['/contact']);
+            this.ContactForm.reset()
           },
           err => console.log(err)
         )

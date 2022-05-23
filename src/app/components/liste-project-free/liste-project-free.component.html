@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+  <div class="containert">
+     
+      <h2>Liste des mes projets</h2>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+      <input type="text" class="form-control" formControlName="titre">    <button type="submit" value="search">Rechercher</button>
+    </div>   </form>
+
+    <table class="responsive-table">
+    
+      <thead>
+        <tr>
+          <th class="col">#</th>
+          <th class="col">Titre</th>
+           <th class="col">Date début</th>
+          <th class="col">Date fin</th>
+          <th class="col">Action</th>
+         </tr>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let item of projects; index as i">
+          <th  > {{ i+1}}</th>
+          <td data-title="Released">{{item.titre}}</td>
+           <td data-title="Worldwide Gross" data-type="currency">{{item.date_debut}}</td>
+          <td data-title="Domestic Gross" data-type="currency">{{item.date_fin}}</td>
+          <td data-title="Domestic Gross" data-type="currency"> <i class="fa fa-pencil" style="font-size:24px;margin-right: 55px;" (click)="goTo(item._id)"></i> </td>
+          
+        
+        </tr>
+   
+      </tbody>
+    </table>
+  </div>
+    
+  </div>

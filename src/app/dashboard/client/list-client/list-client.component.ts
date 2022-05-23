@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
+import { FreelancerService } from 'src/app/services/freelancer.service';
 
 @Component({
   selector: 'app-list-client',
@@ -9,28 +10,27 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class ListClientComponent implements OnInit {
 
-  clients: Client[] = [];
-  constructor(private sc: ClientService) { }
+  clients: any = [];
+  constructor(private fc: FreelancerService) { }
 
   ngOnInit(): void {
+    this.listClients()
+
   }
 
 
   listClients() {
-    this.sc.getClient().subscribe(
-      data => {
-        this.clients = data
+    this.fc.getClient().subscribe(
+      (data:any) => {
+        this.clients = data.result
         console.log(data);
-      }
-
-    )
+      })
 
   }
-  deleteClients(ClientsClicked: Client) {
-    this.sc.deleteClient(ClientsClicked._id)
-      .subscribe(
+  deleteClients(id: any) {
+    this.fc.deleteUser(id).subscribe(
         () => {
-          this.clients = this.clients.filter(tL => tL._id != ClientsClicked._id);
+         this.listClients() 
         }
       );
   }

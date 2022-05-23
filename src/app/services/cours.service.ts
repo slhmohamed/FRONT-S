@@ -17,7 +17,9 @@ export class CoursService {
   .set('Content-Type', 'application/json')
   .set('Accept', 'application/json');
 
-
+  getCoursByTitre(titre:any){
+    return this.http.get<any>(`${this.api}/getCoursByTitre/`+titre);
+  }
   addCours(newCours:any, fileC: File): Observable<any> {
     const fd = new FormData();
     
@@ -28,9 +30,14 @@ export class CoursService {
      return this.http.post(`${this.api}/savecours`, fd)
   }
 
-  updateCours(id: any, data: any): Observable<any> {
+  updateCours(id: any, newCours:any, fileC: any): Observable<any> {
+    const fd = new FormData();
     
-    return this.http.put<any>(`${this.api}/updateCours/${id}`, data);
+    fd.append('name', newCours.name); 
+    fd.append('file', fileC, fileC.name);
+    fd.append('description', newCours.description); 
+  
+    return this.http.put<any>(`${this.api}/updateCours/${id}`, fd);
   }
 
   getCours(): Observable<any> {

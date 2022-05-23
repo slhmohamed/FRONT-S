@@ -13,6 +13,7 @@ import { ListClientComponent } from './client/list-client/list-client.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCoursComponent } from './cours/update-cours/update-cours.component';
 import { ListeCoursComponent } from './cours/liste-cours/liste-cours.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { ListeCoursComponent } from './cours/liste-cours/liste-cours.component';
     CommonModule,
     DashboardRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(), // ToastrModule added
+
   ]
 })
 export class DashboardModule { }

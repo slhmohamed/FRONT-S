@@ -15,9 +15,25 @@ export class ProjetService {
   .set('Accept', 'application/json');
 
   getProjet(): Observable<any> {
-    return this.http.get<Projet[]>(`${this.API_URI}/find`)
+    return this.http.get<Projet[]>(`${this.API_URI}/getProjets`)
+  }
+  getProjetById(id:any): Observable<any> {
+    return this.http.get<Projet[]>(`${this.API_URI}/getProjetById/`+id)
   }
    deleteProjet(id: String) {
-    return this.http.delete(`${this.API_URI}/findOneAndDelete/${id}`);
+    return this.http.delete(`${this.API_URI}/deleteProjet/${id}`);
+  }
+
+  addProjectc(resource:any){
+    return this.http.post(`${this.API_URI}/saveCours`,resource);
+  }
+  getProjetsByFreelancer(id:any){
+    return this.http.get<Projet[]>(`${this.API_URI}/getProjetsByFreelancer/`+id)
+  }
+  getProjetsByTitre(titre:any){
+    return this.http.get<Projet[]>(`${this.API_URI}/getProjetsByTitre/`+titre)
+  }
+  updateProjet(projectId:any,phaseId:any){
+    return this.http.put<void>(`${this.API_URI}/updateProjet/`+projectId+"/"+phaseId,phaseId);
   }
 }

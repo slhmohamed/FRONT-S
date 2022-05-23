@@ -22,6 +22,12 @@ import { ChatComponent } from './components/chat/chat.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { ListeProjectFreeComponent } from './components/liste-project-free/liste-project-free.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { ToastrModule } from 'ngx-toastr';
+import { UsernnameComponent } from './components/usernname/usernname.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,18 +45,25 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProfilfreelancerComponent,
     ProfilclientComponent,
     ChatComponent,
+    AddProjectComponent,
+    ListeProjectFreeComponent,
+    ProjectDetailsComponent,
+    UsernnameComponent,
     
 
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot(), // ToastrModule added
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

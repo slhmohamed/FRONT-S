@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cours } from 'src/app/models/cours';
 import { CoursService } from 'src/app/services/cours.service';
 
@@ -15,7 +16,7 @@ export class CoursComponent implements OnInit {
   submitted = false;
   file: any;
 
-   constructor(private sc: CoursService, public formBuilder: FormBuilder, private router: Router) { 
+   constructor(private sc: CoursService, public formBuilder: FormBuilder, private router: Router,private toastr: ToastrService) { 
      
    }
 
@@ -40,7 +41,7 @@ export class CoursComponent implements OnInit {
     this.sc.addCours(this.coursForm, this.file).subscribe(
       (data) => {
         if (data) {
-          alert('Cours saved successfully!');
+          this.toastr.success('Cours saved!', 'Notification!');
         } else {
           console.log(data);
           alert("error!");

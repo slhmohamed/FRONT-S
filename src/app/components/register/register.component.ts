@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,11 +15,11 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  constructor(private userServ: UserService, public formBuilder: FormBuilder, private router: Router) {
+  constructor(private userServ: UserService, public formBuilder: FormBuilder, private router: Router,private toastr: ToastrService ) {
       this.RegisterForm= this.formBuilder.group({
         firstName:['', Validators.required],
         lastName:['', Validators.required],
-        cin:['', Validators.required],
+        role:['', Validators.required],
         tel:['', Validators.required],
         email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
         password: ['', Validators.required],
@@ -39,12 +40,15 @@ export class RegisterComponent implements OnInit {
       
         this.userServ.signup(this.RegisterForm.value)        
         .subscribe(
-          res => {  
+          (res:any) => {  
                    
             this.router.navigate(['/']);
           },
-          err => console.log(err)
-        )
+           err => {
+            console.log(err.error.message);
+            this.toastr.error(err.error.message, 'Notification!');  
+          })
+   
     
       }
 }

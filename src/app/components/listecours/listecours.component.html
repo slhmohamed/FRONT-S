@@ -1,62 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-    <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/icons/logo.png" alt="" width="30" /><span class="text-1000 fs-1 ms-2 fw-medium">Freelancer<span class="fw-bold">Tunisie</span></span></a>
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-           
-          
-          <li class="nav-item"><a class="nav-link" href="listecours">Cours </a></li>
-          <li class="nav-item"><a class="nav-link" href="listeprojets">Projets </a></li>
-          <li class="nav-item"><a class="nav-link" href="listefreelancers">Freelancers</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact">Contact </a></li>
-        </ul>
-        <form class="d-flex py-3 py-lg-0">
-         
-          <a class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="button" href="login">Deconnexion</a>
+<app-navbar></app-navbar>
+ 
+ 
+<div class="container">
+  <div class="container"><h2>Liste des cours</h2>
+	<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+      <input type="text" class="form-control" formControlName="titre">    <button type="submit" value="search">Rechercher</button>
+    </div>   </form>
+
+ 	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="name" class="filter__link"  >#</a></div>
+			<div class="header__item"><a id="wins" class="filter__link filter__link--number"  >Titre</a></div>
+			<div class="header__item"><a id="draws" class="filter__link filter__link--number" >Description</a></div>
+			<div class="header__item"><a id="losses" class="filter__link filter__link--number"  >Télécharger </a></div>
+ 		</div>
+		<div class="table-content">	
   
-        </form>
-      </div>
-    </div>
-  </nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!--<div class=" bg-gray-200">
-      
-    <div class="container h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8">
-
-
-     <div class="relative" *ngFor="let cours of cours | filter:searchText">
-
-       <input type="text" class="h-14 w-96 pr-8 pl-5 rounded z-0 focus:shadow focus:outline-none"  [(ngModel)]="searchText" placeholder="Search anything...">
-
-         <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
-     
-       
-     </div>
-
-
-
-    
-    </div>
- </div>
--->
- <br>
-<br>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let cours of cours">
-            <div class="card p-3">
-                <div class="d-flex flex-row mb-3">
-                    <div class="d-flex flex-column ml-2"><span>{{cours.file}}</span><span class="text-black-50">{{cours.name}}</span><span class="ratings"></span></div>
-                </div>
-                <h6>{{cours.description}}</h6>
-                <div class="d-flex justify-content-between install mt-3"><span></span><span class="text-primary">installer&nbsp;<i class="fa fa-angle-right"></i></span></div>
-            </div>
-        </div>
-      
-    </div>
+			<div class="table-row" *ngFor="let item of cours; index as i">
+				<div class="table-data">{{i+1}}</div>
+				<div class="table-data">{{item.name}}</div>
+				<div class="table-data">{{item.description}}</div>
+				<div class="table-data"><i class="fa fa-download" (click)="donlowd(item.file)"  aria-hidden="true"></i></div>
+ 
+			</div>
+		</div>	
+	</div>
 </div>
+
+ 

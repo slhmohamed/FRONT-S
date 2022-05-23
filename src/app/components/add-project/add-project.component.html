@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <header>Ajouter nouveau projet</header>
+
+    <form [formGroup]="projetForm" (ngSubmit)="onSubmit()">
+        <div class="form first">
+            <div class="details personal">
+                <span class="title">Projet Details</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <span>Titre de projet</span>
+                        <input type="text"  formControlName="titre" placeholder="Titre de projet" required>
+                    </div>
+                    
+                    <div class="input-field">
+                        <span>Description de projet</span>
+                        <input type="text"  formControlName="description"  placeholder="Description de projet" required>
+                    </div>
+
+                    <div class="input-field">
+                        <span>Date Debut</span>
+                        <input type="date" formControlName="date_debut" required>
+                    </div>
+
+                    <div class="input-field">
+                    <span>Date Fin</span>
+                        <input type="date" formControlName="date_fin"   required>
+                    </div>
+
+                    
+
+                    <div class="input-field" style="width:100% !important">
+                       <span>Selectionne Freelancer</span>
+                        <select   formControlName="frelancer" >
+                            <ng-container *ngFor="let item of freelancer">
+                            
+                            <option [value]="item._id">{{item.firstName}} {{item.lastName}}</option>
+                        </ng-container>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <span class="title">Phase de projet</span>
+
+                 
+                </div>
+                <div class="row" formArrayName="phase"  >
+                <div *ngFor="let item of getPhaseControls() ;let f=index;trackBy: p_trackByFn;">
+                  
+                  <div [formGroupName]="f">
+                    <span> Phase{{f+1}}</span>
+                    <div class="input-field" style="width:555px !important">
+                         
+                        <input type="text" formControlName="phase" [placeholder]="'Phase '+(f+1)" required>
+                    </div>
+                    <button class="button"  (click)="deletePhaseItem(f)" style="   width: 61px !important;
+                    margin-left: 110px !important;
+                    margin-top: 5px !important;    background: #e63535;"  ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+
+
+
+</div>    
+            </div>
+                    <div class="button"
+                     (click)="addPhaseItem()" style="       background: #1bc01b;
+                    width: 287px !important;
+                    margin-left: 260px !important;
+                    margin-top: 5px !important;"   ><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                
+            </div>
+                </div>
+            <button type="submit" style="width: 441px !important;
+            justify-content: center;
+            margin-left: 159px;" >Ajouter</button>
+            
+        </div>
+
+       
+    </form>
+</div>

@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey" style="margin-top: 100px">
+<div class="row">
+  <div class="profile-nav col-md-3">
+       
+  </div>
+  <div class="profile-info col-md-9">
+      <div class="panel" >
+        
+       
+      </div>
+      <div class="panel" style="margin-left: -299px !important;">
+          <div class="bio-graph-heading" >
+            {{project.description}}         </div>
+          <div class="panel-body bio-graph-info">
+              
+              <div class="row" style="margin-top: 15px">
+                  <div class="bio-row" style="    font-size: 18px;
+                  font-weight: bold;">
+                      <p><span>Titre </span>: {{project?.description}}</p>
+                  </div>
+                  <div class="bio-row"style="    font-size: 18px;
+                  font-weight: bold;">
+                      <p><span>Freelancer </span>:{{project.frelancer?.firstName}} {{project.frelancer?.lastName}}</p>
+                  </div>
+                  <div class="bio-row"style="    font-size: 18px;
+                  font-weight: bold;">
+                      <p><span>Date debut </span>: {{project.date_debut}}</p>
+                  </div>
+                  <div class="bio-row"style="    font-size: 18px;
+                  font-weight: bold;">
+                      <p><span>Date fin</span>:{{project.date_fin}}</p>
+                  </div>
+                 
+                
+                
+                   
+              </div>
+          </div>
+      </div>
+      <div class="panel" style="margin-left: -299px !important;">
+ 
+        <div class="panel-body bio-graph-info">
+            <span>Phases de projet</span>
+            <div class="row" style="margin-top: 15px" >
+                <ng-container *ngFor="let item of project.phase; index as i">
+                <div class="bio-row" style="    font-size: 18px;
+                font-weight: bold;">
+               
+                
+                    <p><span>Phase {{i+1}} </span>:{{item.phase}} </p>
+                </div>
+                <div class="bio-row"style="    font-size: 18px;
+                font-weight: bold;">
+                <ng-container *ngIf="item.do==='true'">
+                
+                    <p><span> </span> <i (click)="do(item._id)"class="fa fa-check-square-o" style="font-size:36px;color: green;cursor: pointer;"></i></p>
+                </ng-container> 
+                <ng-container *ngIf="item.do==='false'">
+                
+                    <p><span> </span> <i   (click)="do(item._id)" class="fa fa-check-square-o" style="font-size:36px;color: red;cursor: pointer;"></i></p>
+                </ng-container> 
+                </div>
+
+            </ng-container>
+      
+               
+              
+              
+                 
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>

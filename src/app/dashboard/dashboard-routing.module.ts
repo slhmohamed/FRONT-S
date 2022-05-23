@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from '../services/user.guard';
 import { ClientComponent } from './client/client.component';
 import { ListClientComponent } from './client/list-client/list-client.component';
 import { ContactadminComponent } from './contactadmin/contactadmin.component';
@@ -12,15 +13,16 @@ import { ProjetComponent } from './projet/projet.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
-  {path: "freelancer", component: FreelancerComponent},
-  {path: "navbar", component: NavbarComponent},
-  {path: "sidebar", component: SidebarComponent},
-  {path: "contactadmin", component: ContactadminComponent},
-  {path: "client", component: ClientComponent},
-  {path: "listeclient", component: ListClientComponent},
-  {path: "projet", component: ProjetComponent},
-  {path: "cours", component: CoursComponent},  
-  {path: "liste", component: ListeCoursComponent},
+  {path: "freelancer", component: FreelancerComponent,canActivate: [UserGuard]},
+  {path: "navbar", component: NavbarComponent,canActivate: [UserGuard]},
+  {path: "sidebar", component: SidebarComponent,canActivate: [UserGuard]},
+  {path: "contactadmin", component: ContactadminComponent,canActivate: [UserGuard]},
+  {path: "client", component: ClientComponent,canActivate: [UserGuard]},
+  {path: "listeclient", component: ListClientComponent,canActivate: [UserGuard]},
+  {path: "projet", component: ProjetComponent,canActivate: [UserGuard]},
+  {path: "cours", component: CoursComponent,canActivate: [UserGuard]},  
+  {path: "liste", component: ListeCoursComponent,canActivate: [UserGuard]},
+  {path:"update-cours/:id",component:UpdateCoursComponent,canActivate: [UserGuard]}
   //{path: "update/:id", component: UpdateCoursComponent},
   
 

@@ -19,7 +19,7 @@ export class RegisterfreelancerComponent implements OnInit {
       this.RegisterfreelancerForm= this.formBuilder.group({
         firstName:['', Validators.required],
         lastName:['', Validators.required],
-        cin:['', Validators.required],
+        role:['', Validators.required],
         tel:['', Validators.required],
         email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
         password: ['', Validators.required],

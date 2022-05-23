@@ -1,58 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-  <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/icons/logo.png" alt="" width="30" /><span class="text-1000 fs-1 ms-2 fw-medium">Freelancer<span class="fw-bold">Tunisie</span></span></a>
-    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-         
-       
-        <li class="nav-item"><a class="nav-link" href="listeprojets">Projets </a></li>
-        <li class="nav-item"><a class="nav-link" href="listefreelancers">Freelancers</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact">Contact </a></li>
-      </ul>
-      <form class="d-flex py-3 py-lg-0">
-        <a class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="button" href="login">Deconnexion</a>
+<app-navbar></app-navbar>
+<div class="container">
 
-      </form>
-    </div>
-  </div>
-</nav>
-<br>
-<br>
-<br>
-<div class="container mt-5">
+  <div class="containert">
+     
+      <h2>Liste des projets</h2>
+      <button type="submit" class="search" routerLink="/addProject">Ajouter Nouveau projet</button>
 
-    <div class="row d-flex justify-content-center ">
-
-      <div class="col-md-6">
-
-          <div class="card">
-            
-            <div class="input-box">
-              <input type="text" class="form-control">
-              <i class="fa fa-search"></i>                    
-            </div>
-
-
-            <div class="list border-bottom" *ngFor="let projet of projets">
-
-              <i class="fa fa-fire"></i>
-              <div class="d-flex flex-column ml-3">
-                <span>  {{projet.name}}</span> 
-                <span>  {{projet.titre}}</span> 
-                <small>{{projet.file}}</small>
-              </div>                   
-            </div>
-
-
-
-
-
-
-
-          </div>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+        <input type="text" class="form-control" formControlName="titre">    <button type="submit" value="search">Rechercher</button>
+      </div>   </form>
+  
+    <table class="responsive-table">
+    
+      <thead>
+        <tr>
+          <th class="col">#</th>
+          <th class="col">Titre</th>
+           <th class="col">Freelancer</th>
+          <th class="col">Date début</th>
+          <th class="col">Date fin</th>
+          <th class="col">Action</th>
+         </tr>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let item of projets; index as i">
+          <th  > {{ i+1}}</th>
+          <td data-title="Released">{{item.titre}}</td>
+          <td data-title="Studio">{{item?.frelancer.firstName}} {{item?.frelancer.lastName}}</td>
+          <td data-title="Worldwide Gross" data-type="currency">{{item.date_debut}}</td>
+          <td data-title="Domestic Gross" data-type="currency">{{item.date_fin}}</td>
+          <td data-title="Domestic Gross" data-type="currency"> <i class="fa fa-pencil" style="font-size:24px;margin-right: 55px;" (click)="goTo(item._id)"></i> </td>
+          
         
-      </div>
-      
-    </div>
+        </tr>
+   
+      </tbody>
+    </table>
+  </div>
     
   </div>

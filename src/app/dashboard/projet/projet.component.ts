@@ -10,28 +10,26 @@ import { ProjetService } from 'src/app/services/projet.service';
 })
 export class ProjetComponent implements OnInit {
 
-  projets: Projet[]=[];
+  projets: any=[];
 
   constructor(private sc: ProjetService) { }
 
 
   ngOnInit(): void {
+    this.listProjet()
   }
 
   listProjet() {
     this.sc.getProjet().subscribe(
-      data => {this.projets=data
+      data => {this.projets=data.data
         console.log(data);}
      
     )
 
-  }
-  deleteProjet(projetClicked: Projet) {
-    this.sc.deleteProjet(projetClicked._id)
-      .subscribe(
-        () => {
-          this.projets = this.projets.filter(tL => tL._id != projetClicked._id);
-        }
-      );
+  } 
+  delete(id:any){
+    this.sc.deleteProjet(id).subscribe(res=>{
+      this.listProjet()
+    })
   }
 }

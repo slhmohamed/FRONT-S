@@ -40,4 +40,7 @@ export class ClientService {
   addClient(data:any): Observable<any> {
     return this.http.post(`${this.API_URI}/saveClient`, data)
   }
+  getCurrentUser(id:any){
+    return this.http.get(`${this.API_URI}/getCurrentUser/${id}`);
+  }
 }

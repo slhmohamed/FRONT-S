@@ -14,21 +14,22 @@ export class FreelancerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.listFreelancer()
   }
 
   listFreelancer() {
     this.sc.getFreelancers().subscribe(
-      data => {this.freelancers=data
+      data => {this.freelancers=data.result
         console.log(data);}
      
     )
 
   }
-  deleteFreelancer(freelancerClicked: Freelancer) {
-    this.sc.deleteFreelancer(freelancerClicked._id)
+  deleteFreelancer(id: any) {
+    this.sc.deleteUser(id)
       .subscribe(
         () => {
-          this.freelancers = this.freelancers.filter(tL => tL._id != freelancerClicked._id);
+           this.listFreelancer()
         }
       );
   }

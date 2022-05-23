@@ -16,7 +16,10 @@ export class ListeCoursComponent implements OnInit {
   ngOnInit(): void {
     this.listeCours()
   }
-
+  donlowd(file:any){
+    console.log("file");
+    window.open('http://localhost:3003/'+file, '_blank');
+  }
   listeCours(){
     this.courservice.getCours().subscribe(res => {
 
