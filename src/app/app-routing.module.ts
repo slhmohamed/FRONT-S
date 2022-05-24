@@ -42,8 +42,9 @@ const routes: Routes = [
   { path:'projectDetails/:id',component:ProjectDetailsComponent,canActivate: [UserGuard]},
   { path:'addProject',component:AddProjectComponent,canActivate: [UserGuard]},
 
-  { path:'profile',component:ProfilfreelancerComponent,canActivate: [UserGuard]},
+  { path:'profile',component:ProfilclientComponent,canActivate: [UserGuard]},
   { path:'profilclient',component:ProfilclientComponent,canActivate: [UserGuard]},
+  { path:'freelancer-profile/:id',component:ProfilfreelancerComponent,canActivate: [UserGuard]},
   { path:'chat',component:ChatComponent,canActivate: [UserGuard]},
   {path: "update/:id", component: UpdateCoursComponent,canActivate: [UserGuard]},
 

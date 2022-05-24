@@ -21,6 +21,10 @@ export class UserService {
              return user;
            }));
 }
+
+getFreelancer(id:any){
+  return this.http.get<any>(`${this.API_URI}/getSingleFreelancer/`+id)
+}
   //isLogn:user logeed in or not
   public isLoggedIn(){
     let token=localStorage.getItem('user')

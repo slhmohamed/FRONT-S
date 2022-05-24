@@ -24,10 +24,10 @@
           <div class="col col-4">Email</div>
           <div class="col col-4">Télephone</div>
          </li>
-        <li class="table-row" *ngFor="let item of freelancers; index as i">
+        <li class="table-row" *ngFor="let item of freelancers; index as i" routerLink="/freelancer-profile/{{item._id}}"  >
         <ng-container *ngIf="item.role==='Freelancer'">
         
-          <div class="col col-1" data-label="Job Id" routerLink="/chat"  >{{i+1}}</div>
+          <div class="col col-1" data-label="Job Id" >{{i+1}}</div>
           <div class="col col-2" data-label="Customer Name">{{item.firstName}}</div>
           <div class="col col-3" data-label="Amount">{{item.lastName}}</div>
           <div class="col col-4" data-label="Payment Status">{{item.email}}</div>
