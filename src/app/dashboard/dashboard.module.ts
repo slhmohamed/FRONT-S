@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCoursComponent } from './cours/update-cours/update-cours.component';
 import { ListeCoursComponent } from './cours/liste-cours/liste-cours.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HeaderNavComponent } from './header-nav/header-nav.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
     ListClientComponent,
     UpdateCoursComponent,
     ListeCoursComponent,
+    HeaderNavComponent,
+    ProfilComponent,
   ],
   imports: [
     CommonModule,

@@ -25,6 +25,9 @@ export class UserService {
 getFreelancer(id:any){
   return this.http.get<any>(`${this.API_URI}/getSingleFreelancer/`+id)
 }
+updateUser(id:any,resource:any){
+  return this.http.put(`${this.API_URI}/updateUser/${id}`,resource);
+}
   //isLogn:user logeed in or not
   public isLoggedIn(){
     let token=localStorage.getItem('user')

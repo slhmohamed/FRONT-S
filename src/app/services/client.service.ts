@@ -21,7 +21,9 @@ export class ClientService {
   getClient(): Observable<any> {
     return this.http.get<Client[]>(`${this.API_URI}/find`)
   }
-
+addProject(id:any,resource:any){
+  return this.http.put<Client[]>(`${this.API_URI}/addProject/`+id,resource)
+}
   deleteClient(id: String) {
     return this.http.delete(`${this.api}/deleteClient/${id}`);
   }
@@ -42,5 +44,8 @@ export class ClientService {
   }
   getCurrentUser(id:any){
     return this.http.get(`${this.API_URI}/getCurrentUser/${id}`);
+  }
+  updateUser(id:any,resource:any){
+    return this.http.get(`${this.API_URI}/updateUser/${id}`,resource);
   }
 }

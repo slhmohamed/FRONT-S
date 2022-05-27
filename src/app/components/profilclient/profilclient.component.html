@@ -25,48 +25,46 @@
               </div>
         
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Nom</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{current.firstName}}
-                    </div>
-                  </div>   
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Prenom</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{current.lastName}}
-                    </div>
+            <div class="col-md-8" style="width: 900px !important">
+           
+                <div class="container">
+                  <div class="title">Modifier votre Profil</div>
+                  <div class="content">
+                    <form [formGroup]="UpdateForm" (ngSubmit)="onSubmit()" >
+                      <div class="user-details">
+                        <div class="input-box">
+                          <span class="details">First Name</span>
+                          <input type="text" placeholder="Enter your name" formControlName="firstName" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Last Name</span>
+                          <input type="text" placeholder="Enter your username" formControlName="lastName" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Email</span>
+                          <input type="text" placeholder="Enter your email" formControlName="email" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Phone Number</span>
+                          <input type="text" placeholder="Enter your number" formControlName="tel" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Password</span>
+                          <input type="text" placeholder="Enter your password" formControlName="lastName" required>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Déesactiver votre compte</span>
+                          <button class="desc" (click)="desactive()"  >Desactiver</button>
+                        </div>
+                      </div>
+                     
+                      <div class="button">
+                        <button class="modif"  type="submit" [disabled]="UpdateForm.invalid"  >Modifier</button>
+                      </div>
+                    </form>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{current.email}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     {{current.tel}}
-                    </div>
-                  </div>
-                  <hr>
-                  
                 </div>
-              </div>
+    
 
           
 
@@ -78,4 +76,93 @@
         </div>
          
     </div>
+    <div class="listProjet" *ngIf=" current?.projets?.length >0" >
+       
+      <div class="row" style="margin-bottom: 15px;" *ngFor="let item of current.projets; let i= index;">
+        <!--Content Col Start-->
+        <div class="col-md-12 col">
+          <div class="news-box">
+            <div class="new-txt">
+
+              <div role="tab" [id]="'heading'+i">
+              <h4>
+                <a style="    text-decoration: none;
+                color: black;
+                font-weight: bold;" role="button" id="choose" class="collapsed" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="false" [attr.aria-controls]="'collapse'+i">  
+                <span style="">{{item.titre}}</span>  
+                  
+                <i  class="fa fa-arrow-circle-down" style="color: #292362;    float: right; font-size: 20pt;"></i></a>
+
+              </h4>
+              </div>
+
+              <div [id]="'collapse'+i" class="panel-collapse collapse" role="tabpanel" [attr.aria-labelledby]="'heading'+i" aria-expanded="false">
+                
+                <div class="row" style="width: 1160px !important;
+                margin-bottom: 15px;
+                margin: 28px;">
+                  <!--Content Col Start-->
+                  <div class="col-md-12">
+          
+          <span style="       font-size: 12px;
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+          margin-left: 21px;">{{item.description}}</span>
+          
+                  </div>
+                  <!--Content Col End-->
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!--Content Col End-->
+      </div>
+      
+    </div>
+    <ng-container *ngIf="user.role==='Freelancer'">
+      <div class="container">
+        <div class="title">Ajouter projet</div>
+        <div class="content">
+          <form [formGroup]="projetForm" (ngSubmit)="onSubmitProjet()" >
+            <div class="row" formArrayName="projets"  >
+              <div *ngFor="let item of getPhaseControls() ;let f=index;trackBy: p_trackByFn;">
+                
+                <div [formGroupName]="f">
+                  <span> Projet{{f+1}}</span>
+            <div class="user-details">
+
+              <div class="input-box">
+
+                <span class="details">Titre</span>
+                <input type="text" placeholder="Enter titre" formControlName="titre" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Description</span>
+                <input type="text" placeholder="Enter description" formControlName="description" required>
+              </div>
+              
+                        
+           
+             
+            </div>
+                </div></div>
+              
+                <div class="button" style="    margin-left: 464px;">
+                  <a  class="addPp"    (click)="addPhaseItem()">Nouveau projet</a>
+                </div>
+              </div>
+           
+            <div class="button">
+              <button style="width: 1098px !important;" class="modif"  type="submit"   >Ajouter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </ng-container>
+    
 

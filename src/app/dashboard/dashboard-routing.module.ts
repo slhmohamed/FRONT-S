@@ -9,6 +9,7 @@ import { ListeCoursComponent } from './cours/liste-cours/liste-cours.component';
 import { UpdateCoursComponent } from './cours/update-cours/update-cours.component';
 import { FreelancerComponent } from './freelancer/freelancer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfilComponent } from './profil/profil.component';
 import { ProjetComponent } from './projet/projet.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "projet", component: ProjetComponent,canActivate: [UserGuard]},
   {path: "cours", component: CoursComponent,canActivate: [UserGuard]},  
   {path: "liste", component: ListeCoursComponent,canActivate: [UserGuard]},
-  {path:"update-cours/:id",component:UpdateCoursComponent,canActivate: [UserGuard]}
+  {path:"update-cours/:id",component:UpdateCoursComponent,canActivate: [UserGuard]},
+  {path:"profil",component:ProfilComponent,canActivate: [UserGuard]}
   //{path: "update/:id", component: UpdateCoursComponent},
   
 

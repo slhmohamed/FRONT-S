@@ -1,14 +1,34 @@
-<app-navbar></app-navbar>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-    <div class="main-body">
-    
-   
-    
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Freelancer</title>
+  
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+ <app-header-nav></app-header-nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_settings-panel.html -->
+      <app-navbar></app-navbar>
+      <!-- partial -->
+      <!-- partial:../../partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            
+      
+            
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -74,53 +94,27 @@
 
             </div>
           </div>
-
-        </div>
-        <ng-container  >
-
-          <button type="submit"  routerLink="/chat">Démarrer discussion </button>
-        </ng-container>
-    </div>
-    <div class="listProjet" *ngIf=" current.projets.length >0" >
-       
-      <div class="row" style="width: 1160px !important;
-      margin-bottom: 15px;
-      margin: 28px;" *ngFor="let item of current.projets; let i= index;">
-        <!--Content Col Start-->
-        <div class="col-md-12">
-          <div class="news-box">
-            <div class="new-txt">
-
-              <div role="tab" [id]="'heading'+i">
-              <h4>
-                <a role="button" id="choose" class="collapsed" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="false" [attr.aria-controls]="'collapse'+i">  
-                <span>{{item.titre}}</span>  
-                  
-                <i  class="fa fa-arrow-circle-down" style="color: #292362;    float: right; font-size: 20pt;"></i></a>
-
-              </h4>
-              </div>
-
-              <div [id]="'collapse'+i" class="panel-collapse collapse" role="tabpanel" [attr.aria-labelledby]="'heading'+i" aria-expanded="false">
-                
-                <div class="row" style="margin-bottom: 15px;">
-                  <!--Content Col Start-->
-                  <div class="col-md-12">
-          
-          <span>{{item.description}}</span>
-          
-                  </div>
-                  <!--Content Col End-->
-                </div>
-
-              </div>
-
-            </div>
+           
+           
           </div>
         </div>
-        <!--Content Col End-->
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+          </div>
+        </footer>
+        <!-- partial -->
       </div>
-      
+      <!-- main-panel ends -->
     </div>
-    
+    <!-- page-body-wrapper ends -->
+  </div>
+  
+</body>
+
+</html>
+
 
