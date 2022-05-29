@@ -36,4 +36,7 @@ export class ProjetService {
   updateProjet(projectId:any,phaseId:any){
     return this.http.put<void>(`${this.API_URI}/updateProjet/`+projectId+"/"+phaseId,phaseId);
   }
+  updatePercentageProjet(project:any,resource:any){
+    return this.http.put<void>(`${this.API_URI}/updatePercentageProjet/`+project,resource);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
 import { FreelancerService } from 'src/app/services/freelancer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-client',
@@ -11,7 +12,7 @@ import { FreelancerService } from 'src/app/services/freelancer.service';
 export class ListClientComponent implements OnInit {
 
   clients: any = [];
-  constructor(private fc: FreelancerService) { }
+  constructor(private toastr:ToastrService,private fc: FreelancerService) { }
 
   ngOnInit(): void {
     this.listClients()
@@ -30,6 +31,8 @@ export class ListClientComponent implements OnInit {
   deleteClients(id: any) {
     this.fc.deleteUser(id).subscribe(
         () => {
+          this.toastr.success('Supression avec succes!', 'Notification !');
+
          this.listClients() 
         }
       );

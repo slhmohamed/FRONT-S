@@ -1,77 +1,108 @@
 <app-navbar></app-navbar>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets bootdey" style="margin-top: 100px">
-<div class="row">
-  <div class="profile-nav col-md-3">
-       
-  </div>
-  <div class="profile-info col-md-9">
-      <div class="panel" >
-        
-       
-      </div>
-      <div class="panel" style="margin-left: -299px !important;">
-          <div class="bio-graph-heading" >
-            {{project.description}}         </div>
-          <div class="panel-body bio-graph-info">
-              
-              <div class="row" style="margin-top: 15px">
-                  <div class="bio-row" style="    font-size: 18px;
-                  font-weight: bold;">
-                      <p><span>Titre </span>: {{project?.description}}</p>
-                  </div>
-                  <div class="bio-row"style="    font-size: 18px;
-                  font-weight: bold;">
-                      <p><span>Freelancer </span>:{{project.frelancer?.firstName}} {{project.frelancer?.lastName}}</p>
-                  </div>
-                  <div class="bio-row"style="    font-size: 18px;
-                  font-weight: bold;">
-                      <p><span>Date debut </span>: {{project.date_debut}}</p>
-                  </div>
-                  <div class="bio-row"style="    font-size: 18px;
-                  font-weight: bold;">
-                      <p><span>Date fin</span>:{{project.date_fin}}</p>
-                  </div>
-                 
-                
-                
-                   
-              </div>
-          </div>
-      </div>
-      <div class="panel" style="margin-left: -299px !important;">
- 
-        <div class="panel-body bio-graph-info">
-            <span>Phases de projet</span>
-            <div class="row" style="margin-top: 15px" >
-                <ng-container *ngFor="let item of project.phase; index as i">
-                <div class="bio-row" style="    font-size: 18px;
-                font-weight: bold;">
-               
-                
-                    <p><span>Phase {{i+1}} </span>:{{item.phase}} </p>
-                </div>
-                <div class="bio-row"style="    font-size: 18px;
-                font-weight: bold;">
-                <ng-container *ngIf="item.do==='true'">
-                
-                    <p><span> </span> <i (click)="do(item._id)"class="fa fa-check-square-o" style="font-size:36px;color: green;cursor: pointer;"></i></p>
-                </ng-container> 
-                <ng-container *ngIf="item.do==='false'">
-                
-                    <p><span> </span> <i   (click)="do(item._id)" class="fa fa-check-square-o" style="font-size:36px;color: red;cursor: pointer;"></i></p>
-                </ng-container> 
-                </div>
+    <div class="row">
+        <div class="profile-nav col-md-3">
 
-            </ng-container>
-      
-               
-              
-              
-                 
+        </div>
+        <div class="profile-info col-md-9">
+            <div class="panel">
+
+
+            </div>
+            <div class="panel" style="margin-left: -299px !important;">
+                <div class="bio-graph-heading">
+                    {{project.description}} </div>
+                <div class="panel-body bio-graph-info">
+
+                    <div class="row" style="margin-top: 15px">
+                        <div class="bio-row" style="    font-size: 18px;
+                  font-weight: bold;">
+                            <p><span>Titre </span>: {{project?.description}}</p>
+                        </div>
+                        <div class="bio-row" style="    font-size: 18px;
+                  font-weight: bold;">
+                            <p><span>Freelancer </span>:{{project.frelancer?.firstName}} {{project.frelancer?.lastName}}
+                            </p>
+                        </div>
+                        <div class="bio-row" style="    font-size: 18px;
+                  font-weight: bold;">
+                            <p><span>Date debut </span>: {{project.date_debut}}</p>
+                        </div>
+                        <div class="bio-row" style="    font-size: 18px;
+                  font-weight: bold;">
+                            <p><span>Date fin</span>:{{project.date_fin}}</p>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel" style="margin-left: -299px !important;">
+
+                <div class="panel-body bio-graph-info">
+                    <span>Phases de projet</span>
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <th>Phase</th>
+                                <th>Status</th>
+                                <th>Avencement</th>
+                            </tr>
+                            <tr *ngFor="let item of project.phase">
+                                <td>{{item.phase}}</td>
+                                <td>
+                                    <ng-container *ngIf="role.role==='Freelancer'">
+                                        <ng-container *ngIf="item.do==='true'">
+
+                                            <p><span> </span> <i (click)="do(item._id)" class="fa fa-check-square-o"
+                                                    style="font-size:36px;color: green;cursor: pointer;"></i></p>
+                                        </ng-container>
+                                        <ng-container *ngIf="item.do==='false'">
+
+                                            <p><span> </span> <i (click)="do(item._id)" class="fa fa-check-square-o"
+                                                    style="font-size:36px;color: red;cursor: pointer;"></i></p>
+                                        </ng-container>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="role.role==='Client'">
+                                        <ng-container *ngIf="item.do==='true'">
+
+                                            <div class="col-8">
+                                                <p><span style="font-size:16px;color: green; ">Phase terminé </span>
+                                                </p>
+                                            </div>
+
+                                        </ng-container>
+                                        <ng-container *ngIf="item.do==='false'">
+
+                                            <p><span style="font-size:16px;color: red; ">Phase en cours </span> </p>
+                                        </ng-container>
+                                    </ng-container>
+                                </td>
+                                <td>
+                                    <ng-container *ngIf="role.role==='Freelancer'">
+                                        <div class="row">
+                                            <input type="number" [(ngModel)]="percentage" /> <button type="submit"
+                                                (click)="updatePercentage(item._id)">Ajouter</button>
+                                            <span style="margin-top: 10px;margin-left:10px"> {{item.percentage}}%</span>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="role.role==='Client'">
+                                        <div class="row">
+                                           
+                                            <span  > {{item.percentage}}%</span>
+                                        </div>
+                                    </ng-container>
+                                </td>
+                            </tr>
+                            <!---->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-  </div>
-</div>
 </div>

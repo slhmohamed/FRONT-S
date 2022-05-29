@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
           (res:any) => {  
                    
             this.router.navigate(['/']);
+            this.toastr.success('Bienvenue a notre plateforme!', 'Notification !');
           },
            err => {
             console.log(err.error.message);
